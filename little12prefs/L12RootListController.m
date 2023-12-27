@@ -39,7 +39,7 @@ OBWelcomeController *welcomeController;
     
         self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,10)];
         self.iconView.contentMode = UIViewContentModeScaleAspectFit;
-        self.iconView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/little12prefs.bundle/icon@3x.png"];
+        self.iconView.image = [UIImage imageWithContentsOfFile:@"/var/jb/Library/PreferenceBundles/little12prefs.bundle/icon@3x.png"];
         self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
         self.iconView.alpha = 0.0;
         [self.navigationItem.titleView addSubview:self.iconView];
@@ -47,7 +47,7 @@ OBWelcomeController *welcomeController;
         self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,200,200)];
         UIImageView *headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,200,200)];
         headerImageView.contentMode = UIViewContentModeScaleAspectFill;
-        headerImageView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/little12prefs.bundle/Banner.png"];
+        headerImageView.image = [UIImage imageWithContentsOfFile:@"/var/jb/Library/PreferenceBundles/little12prefs.bundle/Banner.png"];
         headerImageView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.headerView addSubview:headerImageView];
     
@@ -103,7 +103,7 @@ OBWelcomeController *welcomeController;
 		    }
 		}
 
-        NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+        NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
 
         BOOL firstTime;
 
@@ -154,11 +154,11 @@ OBWelcomeController *welcomeController;
 -(void)dismissWelcomeController { 
     [welcomeController dismissViewControllerAnimated:YES completion:nil];
     
-    NSMutableDictionary const *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+    NSMutableDictionary const *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
 
     [prefs setValue:[NSNumber numberWithBool:NO] forKey:@"firstTime"]; 
 
-    [prefs writeToFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist" atomically:YES]; 
+    [prefs writeToFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist" atomically:YES]; 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -170,7 +170,7 @@ OBWelcomeController *welcomeController;
 -(void)viewDidLoad {
     [super viewDidLoad];
 
-    NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+    NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
 
     BOOL hasStatusBarOrInset = NO;
     
@@ -207,7 +207,7 @@ OBWelcomeController *welcomeController;
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"deviceSpoofing"]] animated:YES];
     }
 
-    if ([[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:@"/var/jb/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"keyboardDock"]] animated:YES];
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"keyboardSpacing"]] animated:YES];
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"noGesturesForKeyboard"]] animated:YES];
@@ -229,7 +229,7 @@ OBWelcomeController *welcomeController;
 -(void)reloadSpecifiers {
     [super reloadSpecifiers];
 
-    NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+    NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
 
     BOOL hasStatusBarOrInset = NO;
     
@@ -270,7 +270,7 @@ OBWelcomeController *welcomeController;
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"deviceSpoofing"]] animated:NO];
     }
 
-    if ([[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:@"/var/jb/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"keyboardDock"]] animated:NO];
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"keyboardSpacing"]] animated:NO];
         [self removeContiguousSpecifiers:@[self.savedSpecifiers[@"noGesturesForKeyboard"]] animated:NO];
@@ -350,7 +350,7 @@ OBWelcomeController *welcomeController;
 }
 
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/var/jb/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -358,7 +358,7 @@ OBWelcomeController *welcomeController;
 }
 
 - (void)setPreferenceValue:(id)value specifier:(PSSpecifier*)specifier {
-  NSString *path = [NSString stringWithFormat:@"/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
+  NSString *path = [NSString stringWithFormat:@"/var/jb/var/mobile/Library/Preferences/%@.plist", specifier.properties[@"defaults"]];
   NSMutableDictionary *settings = [NSMutableDictionary dictionary];
   [settings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 
@@ -371,7 +371,7 @@ OBWelcomeController *welcomeController;
 
   NSString const *key = [specifier propertyForKey:@"key"];
     
-  NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+  NSDictionary *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
 
   if ([key isEqualToString:@"iPadDock"]) {
       if ([value boolValue] == false) {
@@ -473,7 +473,7 @@ OBWelcomeController *welcomeController;
         pid_t pid;
         int status;
         const char* args[] = {"sbreload", NULL};
-        posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
+        posix_spawn(&pid, "/var/jb/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
         waitpid(pid, &status, WEXITED);
     }];
 }
@@ -530,7 +530,7 @@ OBWelcomeController *welcomeController;
             return self;
         }
 
-        // self.avatarImage = [UIImage imageNamed:[NSString stringWithFormat:@"/Library/PreferenceBundles/little11prefs.bundle/%@.png", _user]];
+        // self.avatarImage = [UIImage imageNamed:[NSString stringWithFormat:@"/var/jb/Library/PreferenceBundles/little11prefs.bundle/%@.png", _user]];
 
         // This has a delay as image needs to be downloaded
         dispatch_async(dispatch_get_global_queue(0,0), ^{

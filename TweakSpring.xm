@@ -5,7 +5,7 @@ short statusBarStyle, screenRoundness, appswitcherRoundness, iPadDockNumIcons, n
 BOOL enabled, wantsHomeBarSB, wantsHomeBarLS, wantsReduceRows, wantsRoundedCorners, wantsXButtons;
 BOOL wantsCCGrabber, wantsProudLock, wantsHideSBCC,wantsLSShortcuts, wantsBatteryPercent, wantsiPadDock;
 BOOL wantsiPadMultitasking, wantsRecentApps, wantsiPadAppSwitcher, wantsDockInApps, wantsDockInSwitcher;
-
+BOOL noBreadCrumbs;
 %hook BSPlatform
 - (NSInteger)homeButtonType {
     return 2;
@@ -471,7 +471,7 @@ CGFloat offset = 0;
 void loadPrefs() {
      @autoreleasepool {
 
-        #define path @"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"
+        #define path @"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"
 
         NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:path];
 
@@ -504,7 +504,7 @@ void loadPrefs() {
             noBreadCrumbs = [[prefs objectForKey:@"noBreadCrumbs"] boolValue];
         }
         else {
-            NSString *pathDefault = @"/Library/PreferenceBundles/little12prefs.bundle/defaults.plist";
+            NSString *pathDefault = @"/var/jb/Library/PreferenceBundles/little12prefs.bundle/defaults.plist";
             NSFileManager *fileManager = [NSFileManager defaultManager];
 
             if (![fileManager fileExistsAtPath:path]) {

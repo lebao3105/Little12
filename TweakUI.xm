@@ -219,7 +219,7 @@ BOOL wantsDeviceSpoofing, wantsCompatabilityMode;
 void loadPrefs() {
      @autoreleasepool {
         
-        NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+        NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
 
         if (prefs) {
             enabled = [[prefs objectForKey:@"enabled"] boolValue];
@@ -299,7 +299,7 @@ void loadPrefs() {
                 }
             }
 
-            if (![[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
+            if (![[NSFileManager defaultManager] fileExistsAtPath:@"/var/jb/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
 
                 if (wantsKeyboardDock) %init(KeyboardDock);
                 else %init(ForceDefaultKeyboard);

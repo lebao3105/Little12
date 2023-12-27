@@ -23,14 +23,14 @@ iPhone 6S - iPhone X running iOS 14 or later
 
 ## Build
 
-Install [Theos](https://github.com/theos/theos).
+Install [Theos](https://github.com/theos/theos) and git.
 
-Clone the GitHub repository with `git clone https://github.com/ryannair05/Little12.git`.
+Clone the GitHub repository with `git clone https://github.com/lebao3105/Little12.git`.
 
 Run `make package` and it will compile the deb in ./packages/ directory.
 
 ## Info
-Little12 is a fork of [Little11 by me](https://github.com/ryannair05/Little11).
+Little12 is a fork of [Little11 by ryannair05](https://github.com/ryannair05/Little11).
 
 Developers are free to modify and use the Little11 source in their work in accordance with the GNU General Public License.
 
