@@ -11,35 +11,18 @@
 			<string> </string>
 		</dict>
 		<dict>
-    	<key>cell</key>
-			<string>PSDefaultCell</string>
-			<key>cellClass</key>
-			<string>L12AppearanceSelectionTableCell</string>
-			<key>options</key>
-			<array>
-				<dict>
-					<key>text</key>
-					<string>Disabled</string>
-					<key>image</key>
-					<string>oldiPhone</string>
-				</dict>
-				<dict>
-					<key>text</key>
-					<string>Enabled</string>
-					<key>image</key>
-					<string>newiPhone</string>
-				</dict>
-			</array>
+    		<key>cell</key>
+			<string>PSSwitchCell</string>
 			<key>default</key>
 			<true/>
+			<key>label</key>
+			<string>Enable</string>
 			<key>defaults</key>
 			<string>com.ryannair05.little12</string>
 			<key>PostNotification</key>
 			<string>com.ryannair05.little12prefs/prefsupdated</string>
 			<key>key</key>
 			<string>enabled</string>
-			<key>height</key>
-			<integer>200</integer>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -184,14 +167,14 @@
 			<true/>
 			<key>default</key>
 			<real>6</real>
-			<key>leftImage</key>
-			<string></string>
+			<!-- <key>leftImage</key>
+			<string></string> -->
 			<key>max</key>
 			<real>30</real>
 			<key>min</key>
 			<integer>5</integer>
-			<key>rightImage</key>
-			<string></string>
+			<!-- <key>rightImage</key>
+			<string></string> -->
 			<key>showValue</key>
 			<true/>
 			<key>defaults</key>
@@ -623,7 +606,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Developed By </string>
+			<string>Developed By</string>
 		</dict>
 		<dict>
 			<key>cellClass</key>
