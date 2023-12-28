@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
 #include <sys/sysctl.h>
 #include <sys/utsname.h>
+#import <rootless.h>
+
 #define CGRectSetY(rect, y) CGRectMake(rect.origin.x, y, rect.size.width, rect.size.height)
 
 NSInteger statusBarStyle, keyboardSpacing;
@@ -45,12 +47,6 @@ BOOL wantsDeviceSpoofing, wantsCompatabilityMode;
 }
 %end
 
-%hook UIKeyboardDockView
-- (CGRect)bounds {
-    CGRect bounds = %orig;
-    return bounds;
-}
-%end
 %end
 
 %group iPhone11Cam
@@ -217,9 +213,9 @@ BOOL wantsDeviceSpoofing, wantsCompatabilityMode;
 
 // Preferences.
 void loadPrefs() {
-     @autoreleasepool {
+    @autoreleasepool {
         
-        NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"];
+        NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:ROOT_PATH_NS(@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist")];
 
         if (prefs) {
             enabled = [[prefs objectForKey:@"enabled"] boolValue];

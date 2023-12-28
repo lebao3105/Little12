@@ -29,6 +29,20 @@ Clone the GitHub repository with `git clone https://github.com/lebao3105/Little1
 
 Run `make package` and it will compile the deb in ./packages/ directory.
 
+### Code formatting
+
+Install clang-format first.
+
+Then run:
+
+```bash
+$ clang-format -i --style=file:.clang-format --files=.clang-format-files
+```
+
+Never run this on Logos files!
+
+The code format options were taken [here.](https://github.com/paulsfds/objective-c-style-guide/blob/master/.clang-format)
+
 ## Info
 Little12 is a fork of [Little11 by ryannair05](https://github.com/ryannair05/Little11).
 
@@ -37,6 +51,7 @@ Developers are free to modify and use the Little11 source in their work in accor
 Little12 is only partially open source, with it being fully open sourced later in time.
 
 ## Credits
+* Ryan Nair | [Little11 and Little 12](https://github.com/ryannair05)
 * VitaTaf | [HomeGesture](https://github.com/VitaTaf/HomeGesture)
 * Andrew Wiik | [LittleX](https://github.com/andrewwiik/LittleX)
 * duraidabdul | [Neptune](https://github.com/duraidabdul/Neptune)

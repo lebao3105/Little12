@@ -1,20 +1,18 @@
+#import "TweakSpring.h"
 #import <UIKit/UIKit.h>
-#define CGRectSetY(rect, y) CGRectMake(rect.origin.x, y, rect.size.width, rect.size.height)
+#import <rootless.h>
 
 short statusBarStyle, screenRoundness, appswitcherRoundness, iPadDockNumIcons, numberOfRecentApps;
 BOOL enabled, wantsHomeBarSB, wantsHomeBarLS, wantsReduceRows, wantsRoundedCorners, wantsXButtons;
 BOOL wantsCCGrabber, wantsProudLock, wantsHideSBCC,wantsLSShortcuts, wantsBatteryPercent, wantsiPadDock;
 BOOL wantsiPadMultitasking, wantsRecentApps, wantsiPadAppSwitcher, wantsDockInApps, wantsDockInSwitcher;
 BOOL noBreadCrumbs;
+
 %hook BSPlatform
 - (NSInteger)homeButtonType {
     return 2;
 }
 %end
-
-@interface UIScreen (Private)
-@property (atomic, assign, readonly) NSUInteger screenSizeCategory;
-@end
 
 %hook SBHDefaultIconListLayoutProvider
 -(NSUInteger)screenType {
@@ -22,11 +20,6 @@ BOOL noBreadCrumbs;
 }
 %end
 
-@interface CSQuickActionsView : UIView
-- (UIEdgeInsets)_buttonOutsets;
-@property (nonatomic, retain) UIControl *flashlightButton; 
-@property (nonatomic, retain) UIControl *cameraButton;
-@end
 
 %hook CSQuickActionsView
 - (BOOL)_prototypingAllowsButtons {
@@ -40,9 +33,6 @@ BOOL noBreadCrumbs;
     [self cameraButton].frame = CGRectMake(screenBounds.size.width - 96, y, 50, 50);
 }
 %end
-
-@interface CSFullscreenNotificationView : UIView
-@end
 
 %hook CSFullscreenNotificationView
 - (void)setFrame:(CGRect)frame {
@@ -217,12 +207,6 @@ BOOL noBreadCrumbs;
 
 %group ccGrabber
 
-@interface CSTeachableMomentsContainerView : UIView
-@property(retain, nonatomic) UIView *controlCenterGrabberView;
-@property(retain, nonatomic) UIView *controlCenterGrabberEffectContainerView;
-@property (retain, nonatomic) UIImageView * controlCenterGlyphView; 
-@end
-
 %hook CSTeachableMomentsContainerView
 - (void)_layoutControlCenterGrabberAndGlyph  {
     %orig;
@@ -313,10 +297,6 @@ int applicationDidFinishLaunching = 2;
 
 %group roundedCorners
 
-@interface _UIRootWindow : UIView
-@property (setter=_setContinuousCornerRadius:, nonatomic) double _continuousCornerRadius;
-@end
-
 %hook _UIRootWindow
 -(void)layoutSubviews {
     %orig;
@@ -342,18 +322,6 @@ int applicationDidFinishLaunching = 2;
     return NO;
 }
 %end
-
-@interface SBDashBoardMesaUnlockBehaviorConfiguration : NSObject
-- (BOOL)_isAccessibilityRestingUnlockPreferenceEnabled;
-@end
-
-@interface SBDashBoardBiometricUnlockController : NSObject
-@end
-
-@interface SBLockScreenController : NSObject
-+ (id)sharedInstance;
-- (BOOL)_finishUIUnlockFromSource:(int)arg1 withOptions:(id)arg2;
-@end
 
 CGFloat offset = 0;
 
@@ -421,9 +389,6 @@ CGFloat offset = 0;
 }
 %end
 
-@interface WGWidgetGroupViewController : UIViewController
-@end
-
 %hook WGWidgetGroupViewController
 - (void)updateViewConstraints {
     %orig;
@@ -469,9 +434,9 @@ CGFloat offset = 0;
 
 // Preferences.
 void loadPrefs() {
-     @autoreleasepool {
+    @autoreleasepool {
 
-        #define path @"/var/jb/var/mobile/Library/Preferences/com.ryannair05.little12.plist"
+        #define path ROOT_PATH_NS(@"/var/mobile/Library/Preferences/com.ryannair05.little12.plist")
 
         NSDictionary const *prefs = [[NSDictionary alloc] initWithContentsOfFile:path];
 
@@ -504,7 +469,7 @@ void loadPrefs() {
             noBreadCrumbs = [[prefs objectForKey:@"noBreadCrumbs"] boolValue];
         }
         else {
-            NSString *pathDefault = @"/var/jb/Library/PreferenceBundles/little12prefs.bundle/defaults.plist";
+            NSString *pathDefault = ROOT_PATH_NS(@"/Library/PreferenceBundles/little12prefs.bundle/defaults.plist");
             NSFileManager *fileManager = [NSFileManager defaultManager];
 
             if (![fileManager fileExistsAtPath:path]) {
