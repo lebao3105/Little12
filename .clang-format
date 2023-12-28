@@ -1,0 +1,8 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: Consecutive
+ColumnLimit: 120
+ObjCSpaceAfterProperty: true
