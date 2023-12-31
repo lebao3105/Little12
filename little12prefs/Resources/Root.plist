@@ -518,7 +518,7 @@
 			<key>id</key>
 			<string>batteryPercent</string>
 			<key>label</key>
-			<string>Battery Percentage in Statusbar</string>
+			<string>Battery percentage inside battery icon</string>
 			<key>PostNotification</key>
 			<string>com.ryannair05.little12prefs/prefsupdated</string>
 		</dict>
@@ -566,7 +566,7 @@
 			<key>id</key>
 			<string>ProudLock</string>
 			<key>label</key>
-			<string>FaceID Animations</string>
+			<string>FaceID Lock Icon + Animations</string>
 			<key>PostNotification</key>
 			<string>com.ryannair05.little12prefs/prefsupdated</string>
 		</dict>

@@ -113,22 +113,22 @@ OBWelcomeController *welcomeController;
 
         BOOL firstTime;
 
-        if ([prefs objectForKey:@"firstTime"]) {
+        if ([prefs objectForKey:@"firstTime"])
             firstTime = [[prefs objectForKey:@"firstTime"] boolValue];
-        } else
+        else
             firstTime = YES;
 
         if (firstTime) {
 
             welcomeController = [[OBWelcomeController alloc]
                 initWithTitle:@"Welcome to Little12"
-                   detailText:@"Little12 Brings iPhone 12 Gestures and Features to all devices!"
+                   detailText:@"Bring iPhone X+ Gestures and Features to all devices!"
                          icon:[UIImage systemImageNamed:@"gear"]];
 
             [welcomeController
                 addBulletedListItemWithTitle:@"The Tweak"
                                  description:@"The iPhone X Gestures should be available on all devices, "
-                                             @"and so Little12 brings these fluid gestures to your device."
+                                             @"and so Little12 was born for that."
                                        image:[UIImage systemImageNamed:@"1.circle.fill"]];
             [welcomeController
                 addBulletedListItemWithTitle:@"App Support"
@@ -166,7 +166,7 @@ OBWelcomeController *welcomeController;
             UIVisualEffectView *effectWelcomeView =
                 [[UIVisualEffectView alloc] initWithFrame:welcomeController.viewIfLoaded.bounds];
 
-            effectWelcomeView.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemChromeMaterial];
+            effectWelcomeView.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemThickMaterial];
 
             [welcomeController.viewIfLoaded insertSubview:effectWelcomeView atIndex:0];
 
