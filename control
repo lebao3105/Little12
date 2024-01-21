@@ -1,9 +1,9 @@
 Package: com.ryannair05.little12
 Name: Little12
-Depends: mobilesubstrate, preferenceloader, firmware (>= 11.0)
-Version: 1.0.0
+Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0)
+Version: 1.1.0
 Architecture: iphoneos-arm
-Description: iPhone 12 gestures and more for iOS 14
+Description: Notched iPhones gestures and more for iOS 14+
 Maintainer: Ryan Nair
 Author: Ryan Nair
 Section: Tweaks

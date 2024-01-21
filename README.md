@@ -4,18 +4,20 @@ Simulate your older iPhone as an iPhone X by enabling iPhone X fluid gestures.
 
 ## Compatibility
 
-iPhone 6S - iPhone X running iOS 14 or later
+It should work on iOS 14-15 and later devices.
 
-## Features - All can be enabled/disabled in settings* :)
+Some codes are removed as SpringBoard don't need them anymore, but that's for iOS 15.
+
+## Features
 * iPhone X fluid gestures.
 * iPhone X and iPad status bar.
 * iPhone X CC Grabber, Keyboard, and Homebar
-* iPhone X Device Spoofing
+* iPhone Device Model Spoofing (to iPhone12,1 -> regular iPhone 11)
 * iPad Dock, App Switcher and Multitasking Features
 * FaceID Padlock
-* Reduce Rows
-* iPhone X rounded switcher and corners
-* Battery Percentage in Battery Icon
+* Reduce Home Scren Rows
+* Rounded screen corners ~~and app switcher~~
+* Percentage in Battery Icon
 * Bottom Inset
 * iPhone X Coversheet Shortcuts 
 * iPhone 11 Camera UI [Beta]
