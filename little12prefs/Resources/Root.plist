@@ -7,8 +7,8 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
-			<key>label</key>
-			<string> </string>
+			<key>footerText</key>
+			<string>A respring is required for any changes.</string>
 		</dict>
 		<dict>
     		<key>cell</key>
@@ -28,13 +28,15 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Global Settings</string>
+			<string>Status Bar Settings</string>
+			<key>footerText</key>
+			<string>iPhone X status bar has been confirmed to have issues with some apps/its alignment.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
 			<string>PSLinkListCell</string>
 			<key>default</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>defaults</key>
 			<string>com.ryannair05.little12</string>
 			<key>key</key>
@@ -68,6 +70,46 @@
 			<key>defaults</key>
 			<string>com.ryannair05.little12</string>
 			<key>key</key>
+			<string>HideSBCC</string>
+			<key>id</key>
+			<string>HideSBCC</string>
+			<key>label</key>
+			<string>Hide Status Bar in Control Center</string>
+			<key>PostNotification</key>
+			<string>com.ryannair05.little12prefs/prefsupdated</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.ryannair05.little12</string>
+			<key>key</key>
+			<string>batteryPercent</string>
+			<key>id</key>
+			<string>batteryPercent</string>
+			<key>label</key>
+			<string>Battery percentage inside battery icon</string>
+			<key>PostNotification</key>
+			<string>com.ryannair05.little12prefs/prefsupdated</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Home Bar Settings</string>
+			<key>footerText</key>
+			<string>Cover Sheet = Lock Screen + Notification Center</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.ryannair05.little12</string>
+			<key>key</key>
 			<string>homeBarSB</string>
 			<key>id</key>
 			<string>homeBarSB</string>
@@ -80,7 +122,7 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.ryannair05.little12</string>
 			<key>key</key>
@@ -94,9 +136,15 @@
 		</dict>
 		<dict>
 			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Keyboard Settings</string>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.ryannair05.little12</string>
 			<key>key</key>
@@ -128,27 +176,11 @@
 			<key>id</key>
 			<string>keyboardSpacing</string>
 		</dict>
-<!-- 		<dict>
+		<!-- <dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
-			<key>defaults</key>
-			<string>com.ryannair05.little12</string>
-			<key>key</key>
-			<string>roundedAppSwitcher</string>
-			<key>id</key>
-			<string>roundedAppSwitcher</string>
-			<key>label</key>
-			<string>Rounded App Switcher + Dock</string>
-			<key>PostNotification</key>
-			<string>com.ryannair05.little12prefs/prefsupdated</string>
-		</dict> -->
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.ryannair05.little12</string>
 			<key>key</key>
@@ -167,14 +199,10 @@
 			<true/>
 			<key>default</key>
 			<real>6</real>
-			<!-- <key>leftImage</key>
-			<string></string> -->
 			<key>max</key>
 			<real>30</real>
 			<key>min</key>
 			<integer>5</integer>
-			<!-- <key>rightImage</key>
-			<string></string> -->
 			<key>showValue</key>
 			<true/>
 			<key>defaults</key>
@@ -185,6 +213,12 @@
 			<string>appswitcherRoundness</string>
 			<key>PostNotification</key>
 			<string>com.ryannair05.little12prefs/prefsupdated</string>
+		</dict> -->
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Screen Settings</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -255,14 +289,10 @@
 			<true/>
 			<key>default</key>
 			<real>6</real>
-			<key>leftImage</key>
-			<string></string>
 			<key>max</key>
 			<real>45</real>
 			<key>min</key>
 			<integer>5</integer>
-			<key>rightImage</key>
-			<string></string>
 			<key>showValue</key>
 			<true/>
 			<key>defaults</key>
@@ -471,8 +501,6 @@
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Misc Settings</string>
-			<key>footerText</key>
-			<string>Settings apply system-wide and need a respring to take effect.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -507,38 +535,6 @@
 			<string>com.ryannair05.little12prefs/prefsupdated</string>
 		</dict>
 		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.ryannair05.little12</string>
-			<key>key</key>
-			<string>batteryPercent</string>
-			<key>id</key>
-			<string>batteryPercent</string>
-			<key>label</key>
-			<string>Battery percentage inside battery icon</string>
-			<key>PostNotification</key>
-			<string>com.ryannair05.little12prefs/prefsupdated</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.ryannair05.little12</string>
-			<key>key</key>
-			<string>HideSBCC</string>
-			<key>id</key>
-			<string>HideSBCC</string>
-			<key>label</key>
-			<string>Hide Status Bar in Control Center</string>
-			<key>PostNotification</key>
-			<string>com.ryannair05.little12prefs/prefsupdated</string>
-		</dict>
-			<dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
