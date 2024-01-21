@@ -120,10 +120,10 @@ OBWelcomeController *welcomeController;
 
         if (firstTime) {
 
-            welcomeController = [[OBWelcomeController alloc]
-                initWithTitle:@"Welcome to Little12"
-                   detailText:@"Bring iPhone X+ Gestures and Features to all devices!"
-                         icon:[UIImage systemImageNamed:@"gear"]];
+            welcomeController =
+                [[OBWelcomeController alloc] initWithTitle:@"Welcome to Little12"
+                                                detailText:@"Bring iPhone X+ Gestures and Features to all devices!"
+                                                      icon:[UIImage systemImageNamed:@"gear"]];
 
             [welcomeController
                 addBulletedListItemWithTitle:@"The Tweak"
