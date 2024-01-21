@@ -231,7 +231,8 @@ BOOL noBreadCrumbs;
 %end
 %end
 
-// Allows you to use the non-X iPhone button combinations. For some reason only works on some devices - Just as the iPhone X Combinations
+// Allows you to use the non-X iPhone button combinations.
+// For some reason only works on some devices - Just as the iPhone X Combinations
 %group originalButtons
 %hook SBLockHardwareButtonActions
 - (id)initWithHomeButtonType:(long long)arg1 proximitySensorManager:(id)arg2 {
@@ -295,6 +296,7 @@ int applicationDidFinishLaunching = 2;
 %end
 %end
 
+// Rounded screen corners
 %group roundedCorners
 
 %hook _UIRootWindow
@@ -313,6 +315,7 @@ int applicationDidFinishLaunching = 2;
 %end
 %end 
 
+// Lock screen
 %group ProudLock
 %hook SBUIPasscodeBiometricResource
 -(BOOL)hasPearlSupport {
@@ -327,15 +330,15 @@ CGFloat offset = 0;
 
 %hook SBFLockScreenDateView
 -(id)initWithFrame:(CGRect)arg1 {
-    CGFloat const screenWidth = UIScreen.mainScreen.bounds.size.width;
+    // CGFloat const screenWidth = UIScreen.mainScreen.bounds.size.width;
 
-	if (screenWidth <= 320) {
-		offset = 20;
-	} else if (screenWidth <= 375) {
-		offset = 35;
-	} else if (screenWidth <= 414) {
-		offset = 28;
-	}
+	// if (screenWidth <= 320) {
+	// 	offset = 20;
+	// } else if (screenWidth <= 375) {
+	// 	offset = 35;
+	// } else if (screenWidth <= 414) {
+	// 	offset = 28;
+	// }
 
     return %orig;
 }
@@ -447,7 +450,7 @@ void loadPrefs() {
             appswitcherRoundness = [[prefs objectForKey:@"appswitcherRoundness"] integerValue];
             wantsHomeBarSB = [[prefs objectForKey:@"homeBarSB"] boolValue];
             wantsHomeBarLS = [[prefs objectForKey:@"homeBarLS"] boolValue];
-            if ([[prefs objectForKey:@"roundedAppSwitcher"] boolValue] == false) {
+            if (![[prefs objectForKey:@"roundedAppSwitcher"] boolValue]) {
                 appswitcherRoundness = 0;
             }
             wantsReduceRows =  [[prefs objectForKey:@"reduceRows"] boolValue];
@@ -490,7 +493,9 @@ void loadPrefs() {
 %ctor {
     @autoreleasepool {
 
-        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.ryannair05.little12prefs/prefsupdated"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL,
+                                        (CFNotificationCallback)loadPrefs, CFSTR("com.ryannair05.little12prefs/prefsupdated"),
+                                        NULL, CFNotificationSuspensionBehaviorCoalesce);
         loadPrefs();
         
         if (enabled) {

@@ -12,13 +12,10 @@ BOOL wantsDeviceSpoofing, wantsCompatabilityMode;
 
 %group ForceDefaultKeyboard
 
+// FIXME
 %hook UIKeyboardImpl
 +(UIEdgeInsets)deviceSpecificPaddingForInterfaceOrientation:(NSInteger)orientation inputMode:(id)mode {
-	UIEdgeInsets orig = %orig;
-	orig.left =  0;
-	orig.right = 0;
-    orig.bottom = 0;
-	return orig;
+	return %orig;
 }
 %end
 %end
@@ -42,7 +39,7 @@ BOOL wantsDeviceSpoofing, wantsCompatabilityMode;
 +(UIEdgeInsets)deviceSpecificPaddingForInterfaceOrientation:(NSInteger)orientation inputMode:(id)mode {
     UIEdgeInsets orig = %orig;
     if (!(%c(BarmojiCollectionView) || %c(DockXServer)))
-         orig.bottom = keyboardSpacing;
+        orig.bottom = keyboardSpacing;
     return orig;
 }
 %end
@@ -295,7 +292,7 @@ void loadPrefs() {
                 }
             }
 
-            if (![[NSFileManager defaultManager] fileExistsAtPath:@"/var/jb/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib"]) {
+            if (![[NSFileManager defaultManager] fileExistsAtPath:ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/KeyboardPlus.dylib")]) {
 
                 if (wantsKeyboardDock) %init(KeyboardDock);
                 else %init(ForceDefaultKeyboard);
