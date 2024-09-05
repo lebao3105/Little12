@@ -2,6 +2,8 @@
 
 Simulate your older iPhone as an iPhone X by enabling iPhone X fluid gestures.
 
+Builds available [here](https://lebao3105.github.io/repo).
+
 ## Compatibility
 
 It should work on iOS 14-15 and later devices.
@@ -9,6 +11,7 @@ It should work on iOS 14-15 and later devices.
 Some codes are removed as SpringBoard don't need them anymore, but that's for iOS 15.
 
 ## Features
+
 * iPhone X fluid gestures.
 * iPhone X and iPad status bar.
 * iPhone X CC Grabber, Keyboard, and Homebar
